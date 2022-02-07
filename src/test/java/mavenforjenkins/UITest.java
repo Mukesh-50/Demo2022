@@ -2,6 +2,7 @@ package mavenforjenkins;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -22,7 +23,9 @@ public class UITest
 		if(browserName.contains("Chrome"))
 		{
 			WebDriverManager.chromedriver().setup();
-			 driver=new ChromeDriver();
+			ChromeOptions opt=new ChromeOptions();
+			opt.setHeadless(true);
+			driver=new ChromeDriver(opt);
 		}
 		else if(browserName.contains("Edge"))
 		{
